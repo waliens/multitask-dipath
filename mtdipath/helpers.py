@@ -1,10 +1,10 @@
 
-def unfreeze_mh(module):
-    """Unfreezes the shared network of a multi-head module. Its trainable parameters
+def module_unfreeze(module):
+    """Unfreezes the shared network of module. Its trainable parameters
     are made trainable (requires_grad=True) and the module is set to `train` mode.
     Parameters
     ----------
-    multihead: MultiHead
+    module: MultiHead
         Multi-head network module
     """
     module.train()
@@ -12,13 +12,13 @@ def unfreeze_mh(module):
         param.requires_grad = True
 
 
-def freeze_mh(module):
-    """Freezes the shared network of a multi-head module. Its trainable parameters
+def module_freeze(module):
+    """Freezes the shared network of module. Its trainable parameters
     are fixed (requires_grad=False) and the module is set to `eval` mode.
 
     Parameters
     ----------
-    multihead: MultiHead
+    module: MultiHead
         Multi-head network module
     """
     module.eval()
