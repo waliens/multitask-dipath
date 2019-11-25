@@ -13,9 +13,10 @@ class SingleHead(nn.Module):
         """
         Parameters
         ----------
-        features: nn.Module
-
+        features: nn.Module, FeaturesInterface
+            The module producing the features map
         head: nn.Module
+            The head module
         """
         super().__init__()
         self.features = features
@@ -38,7 +39,7 @@ class MultiHead(nn.Module):
         ----------
         dataset: MultiTaskDataset
             The dataset for which the multi-head network must be built.
-        features: nn.Module
+        features: nn.Module, FeaturesInterface
             The shared network module. Should have a `n_features()` function returning
             the number of feature maps it produces.
         """

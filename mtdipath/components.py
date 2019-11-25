@@ -1,7 +1,8 @@
+from abc import abstractmethod
 from torch import nn
 
 
-class NoHeadInterface(object):
+class FeaturesInterface(object):
     @abstractmethod
     def n_features(self):
         pass
@@ -36,7 +37,7 @@ class Head(nn.Module):
         return x.view(x.size(0), -1)
 
 
-class NoHeadWithPooling(nn.Module, NoHeadInterface):
+class NoHeadWithPooling(nn.Module, FeaturesInterface):
     """This module applies a global average pooling on features produced by a module.
     """
 
