@@ -61,10 +61,3 @@ def build_densenet(pretrained=False, arch="densenet201", model_class=NoHeadDense
             raise ValueError("Unknown pre-training source")
         model.load_state_dict(state_dict)
     return model
-
-
-if __name__ == "__main__":
-    densenet = build_densenet(pretrained="mtdp", arch="densenet121")
-
-    from mtdp.models import build_resnet
-    resnet = build_resnet(pretrained="mtdp", arch="resnet50")
