@@ -37,7 +37,7 @@ class Head(nn.Module):
         return x.view(x.size(0), -1)
 
 
-class NoHeadWithPooling(nn.Module, FeaturesInterface):
+class PooledFeatureExtractor(nn.Module, FeaturesInterface):
     """This module applies a global average pooling on features produced by a module.
     """
 
