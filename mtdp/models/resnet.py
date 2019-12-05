@@ -1,7 +1,7 @@
 from torch.utils import model_zoo
 from torchvision.models.resnet import ResNet, model_urls as resnet_urls, BasicBlock, Bottleneck
-from mtdipath.components import FeaturesInterface
-from mtdipath.models._util import load_dox_url, clean_state_dict
+from mtdp.components import FeaturesInterface
+from mtdp.models._util import load_dox_url, clean_state_dict
 
 MTDP_URLS = {
     "resnet50": ("https://dox.uliege.be/index.php/s/kvABLtVuMxW8iJy/download", "resnet50-mh-best-191205-141200.pth")

@@ -1,5 +1,5 @@
-from mtdipath.models.densenet import build_densenet
-from mtdipath.models.resnet import build_resnet
+from mtdp.models.densenet import build_densenet
+from mtdp.models.resnet import build_resnet
 
 
 def build_model(arch, **kwargs):

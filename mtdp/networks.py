@@ -1,6 +1,6 @@
 from torch import nn
 
-from mtdipath.components import Head
+from mtdp.components import Head
 
 
 class SingleHead(nn.Module):

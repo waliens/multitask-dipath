@@ -2,8 +2,8 @@ import re
 
 from torch.utils import model_zoo
 from torchvision.models.densenet import DenseNet, model_urls as densenet_urls
-from mtdipath.components import FeaturesInterface
-from mtdipath.models._util import load_dox_url, clean_state_dict
+from mtdp.components import FeaturesInterface
+from mtdp.models._util import load_dox_url, clean_state_dict
 
 MTDP_URLS = {
     "densenet121": ("https://dox.uliege.be/index.php/s/G72InP4xmJvOrVp/download", "densenet121-mh-best-191205-141200.pth")
@@ -66,5 +66,5 @@ def build_densenet(pretrained=False, arch="densenet201", model_class=NoHeadDense
 if __name__ == "__main__":
     densenet = build_densenet(pretrained="mtdp", arch="densenet121")
 
-    from mtdipath.models import build_resnet
+    from mtdp.models import build_resnet
     resnet = build_resnet(pretrained="mtdp", arch="resnet50")
