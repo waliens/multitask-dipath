@@ -13,7 +13,7 @@ setup(
     description='Implementation of multitask networks',
     long_description=long_description,
     long_description_content_type="text/markdown",
-    packages=['mtdipath'],
+    packages=['mtdipath', 'mtdipath.models'],
     # TODO  url='https://github.com/Neubias-WG5',
     classifiers=[
         'Intended Audience :: Science/Research',
