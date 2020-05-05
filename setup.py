@@ -1,6 +1,7 @@
 import os
 from setuptools import setup
-from mtdp import __version__
+
+__version__ = "0.0.1-alpha"
 
 long_description = ""
 if os.path.isfile("README.md"):
@@ -8,13 +9,12 @@ if os.path.isfile("README.md"):
         long_description = fh.read()
 
 setup(
-    name='Multitask pre-trained deep neural networks for digital pathology',
+    name='mtdp',
     version=__version__,
-    description='Implementation of multitask networks',
+    description='Implementation of multi-task trained networks, including models pre-trained on digital pathology data',
     long_description=long_description,
     long_description_content_type="text/markdown",
     packages=['mtdp', 'mtdp.models'],
-    # TODO  url='https://github.com/Neubias-WG5',
     classifiers=[
         'Intended Audience :: Science/Research',
         'Intended Audience :: Developers',
