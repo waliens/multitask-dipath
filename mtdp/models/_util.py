@@ -45,5 +45,6 @@ def load_dox_url(url, filename, model_dir=None, map_location=None, progress=True
     cached_file = os.path.join(model_dir, filename)
     if not os.path.exists(cached_file):
         sys.stderr.write('Downloading: "{}" to {}\n'.format(url, cached_file))
+        sys.stderr.flush()
         _download_url_to_file(url, cached_file, None, progress=progress)
     return torch.load(cached_file, map_location=map_location)
