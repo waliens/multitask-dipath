@@ -1,6 +1,6 @@
 # mtdp
 
-Library containing implementation related to the [research paper](http://hdl.handle.net/2268/247134) "_Multi-task pre-training of deep neural networks for digital pathology_".
+Library containing implementation related to the [research paper](http://hdl.handle.net/2268/247134) "_Multi-task pre-training of deep neural networks for digital pathology_" (Mormont _et al._).
 
 It can be used to load our pre-trained models or to build a multi-task classification architecture.
 
