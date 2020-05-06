@@ -44,6 +44,7 @@ class MultiHead(nn.Module):
             the number of feature maps it produces.
         """
         super().__init__()
+        self.features = features
         self._dataset = dataset
         self.heads = nn.ModuleDict({
             name: Head(n_features=features.n_features(), n_classes=n_classes)
