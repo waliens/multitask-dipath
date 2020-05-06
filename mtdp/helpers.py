@@ -147,3 +147,23 @@ def compute_loss(multihead, x, y, sources, loss_fn, aggreg_fn=torch.mean, return
         return loss, losses_per_task
     else:
         return loss
+
+
+def rescale_head_grads(multihead, sources):
+    """
+    Rescale the heads gradients based on the number of samples that passed through the
+    head during this iteration
+    Parameters
+    ----------
+    multihead: MultiHead
+        Multihead network
+    sources: torch.tensor
+        Batch sources strings.
+    """
+    sources = sources.numpy()
+    batch_size = sources.shape[0]
+    values, counts = np.unique(sources, return_counts=True)
+    for index, count in zip(values, counts):
+        head = multihead.heads[multihead.dataset.name(index)]
+        for p in head.parameters():
+            p.grad *= batch_size / count
