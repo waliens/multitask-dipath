@@ -6,7 +6,7 @@ It can be used to load our pre-trained models or to build a multi-task classific
 
 ## Loading our pre-trained weights.
 
-> For an example, check the file `examples/feature_extract.py`.
+> For an example, check the file [`examples/feature_extract.py`](https://github.com/waliens/multitask-dipath/blob/master/examples/feature_extract.py).
 
 The library provides a `build_model` function to build a model and initialize it with our
 pre-trained weights. To load our weights, the parameter `pretrained` should be set to `mtdp`.
@@ -37,14 +37,14 @@ If you want to bypass the library and download the raw PyTorch model files, you 
 
 ## Building a multi-task architecture
 
-> For an example, see the `examples/multi_task_train.py` file.
+> For an example, see the [`examples/multi_task_train.py`](https://github.com/waliens/multitask-dipath/blob/master/examples/multi_task_train.py) file.
 
 Several steps for building the architecture:
 
 1. define a `DatasetFolder`/`ImageFolder` for each of your individual dataset,
-2. instantiate a `MultiImageFolders` object with all your dataset objects
+2. instantiate a `MultiImageFolders` object with all your dataset objects,
 3. instantiate a `MultiHead` PyTorch module by passing it the `MultiImageFolders` from step 2. The
-module will use the information of the tasks in order to build the multi-task architecture
+module will use the information of the tasks in order to build the multi-task architecture.
 
 
 
