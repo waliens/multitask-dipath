@@ -36,7 +36,7 @@ def build_densenet(pretrained=False, arch="densenet201", model_class=NoHeadDense
         "densenet161": {"num_init_features": 96, "growth_rate": 48, "block_config": (6, 12, 36, 24)}
     }
     model = model_class(**(params[arch]), **kwargs)
-    if pretrained is not None:
+    if isinstance(pretrained, str):
         # '.'s are no longer allowed in module names, but pervious _DenseLayer
         # has keys 'norm.1', 'relu.1', 'conv.1', 'norm.2', 'relu.2', 'conv.2'.
         # They are also in the checkpoints in model_urls. This pattern is used

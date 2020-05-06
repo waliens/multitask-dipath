@@ -38,7 +38,7 @@ def build_resnet(pretrained=None, arch="resnet50", model_class=NoHeadResNet, **k
         "resnet152":  [Bottleneck, [3, 8, 36, 3]]
     }
     model = model_class(*params[arch], **kwargs)
-    if pretrained is not None:
+    if isinstance(pretrained, str):
         if pretrained == "imagenet":
             url = resnet_urls[arch]  # default imagenet
             state_dict = model_zoo.load_url(url)
