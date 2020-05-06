@@ -95,7 +95,7 @@ class MultiSetImageFolder(Dataset):
 
 class MultiImageFolders(Dataset):
     """Multiple tasks, each being represented by a Dataset. Each dataset can be identified by its name (name of
-    the dataset folder) or an index.
+    the dataset folder, should be unique) or an index.
     """
     def __init__(self, datasets, indexes=None):
         """
@@ -117,6 +117,16 @@ class MultiImageFolders(Dataset):
         # maps dataset name with external id
         self._dataset_name_to_index = {self.name(i): i for i in self._indexes}
         self._sizes, self._cumsum_sizes = datasets_size_cumsum(self._datasets)
+        self._check_name_unicity()
+
+    def _check_name_unicity(self):
+        """Check whether all datasets have different names"""
+        names = set()
+        for i, dataset in enumerate(self.datasets):
+            name = self.name(i)
+            if name in names:
+                raise ValueError("several datasets in the MultiImageFolders have the same name '{}' (folder name)".format(name))
+            names.add(self.name(i))
 
     def __getitem__(self, index):
         dataset_index, relative_index = get_sample_indexes(index, self._cumsum_sizes)
