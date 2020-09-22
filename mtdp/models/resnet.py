@@ -20,6 +20,9 @@ class NoHeadResNet(ResNet, FeaturesInterface):
         x = self.layer3(x)
         return self.layer4(x)
 
+    def n_features(self):
+        return [b for b in list(self.layer4[-1].children()) if hasattr(b, 'num_features')][-1].num_features
+
 
 def build_resnet(pretrained=None, arch="resnet50", model_class=NoHeadResNet, **kwargs):
     """Constructs a ResNet-18 model.
