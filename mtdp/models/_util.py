@@ -6,7 +6,7 @@ import sys
 import tempfile
 
 import torch
-from torch.utils.model_zoo import _download_url_to_file
+from torch.hub import download_url_to_file
 
 try:
     from requests.utils import urlparse
@@ -46,5 +46,5 @@ def load_dox_url(url, filename, model_dir=None, map_location=None, progress=True
     if not os.path.exists(cached_file):
         sys.stderr.write('Downloading: "{}" to {}\n'.format(url, cached_file))
         sys.stderr.flush()
-        _download_url_to_file(url, cached_file, None, progress=progress)
+        download_url_to_file(url, cached_file, None, progress=progress)
     return torch.load(cached_file, map_location=map_location)
